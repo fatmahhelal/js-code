@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saudi Phone Number Validation</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Saudi Phone Number Validation</h2>
+        <form id="phoneForm">
+            <div class="form-group">
+                <label for="phoneNumber">Enter Saudi Phone Number:</label>
+                <input type="text" class="form-control" id="phoneNumber" placeholder="e.g. 966501234567" maxlength="12">
+                <small id="errorText" class="form-text text-danger"></small>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="validatePhoneNumber()">Validate</button>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function validatePhoneNumber() {
+            const phoneNumberInput = document.getElementById('phoneNumber');
+            const errorText = document.getElementById('errorText');
+            
+            // Regular expression for Saudi phone numbers (starts with 966, followed by 9 digits)
+            const saudiPhoneNumberRegex = /^(966)[1-9]\d{8}$/;
+
+            if (saudiPhoneNumberRegex.test(phoneNumberInput.value)) {
+                errorText.textContent = ''; // Clear any previous error message
+                alert('Valid Saudi Phone Number!');
+            } else {
+                errorText.textContent = 'Invalid Saudi Phone Number. Please enter a valid number.';
+            }
+        }
+    </script>
+</body>
+</html>
